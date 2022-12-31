@@ -20,9 +20,11 @@ public class AuthenticationController {
 	@RequestMapping(value = "/users/{email}", method = RequestMethod.GET)
 	public UserResponse getUserByEmail(@PathVariable String email) throws Exception{
 		
-		UserResponse returnValue = new UserResponse();
-		
+//		UserResponse returnValue = new UserResponse();
+
 		UserDto user = userService.getUser(email);
+		UserResponse returnValue = UserResponse.builder().userId(user.getUserId()).firstName(user.getFirstName()).
+				lastName(user.getLastName()).email(user.getEmail()).build();
 		BeanUtils.copyProperties(user, returnValue);
 		
 		return returnValue;
