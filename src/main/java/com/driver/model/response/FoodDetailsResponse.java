@@ -1,11 +1,15 @@
 package com.driver.model.response;
 
+import lombok.Builder;
+
+@Builder
 public class FoodDetailsResponse {
 
 	private String foodId;
 	private String foodName;
 	private float foodPrice;
 	private String foodCategory;
+
 
 	public String getFoodId() {
 		return foodId;
